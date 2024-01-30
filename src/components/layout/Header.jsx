@@ -1,16 +1,24 @@
+import { Box, Container, Heading } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+
 const Header = () => {
     return (
-        <header className="header">
-            <h1>JUST쇼핑몰</h1>
+        <Box as="header" borderBottom={"1px solid"} borderColor={"#ff0000"}>
+            <Container display={["block", null ,"flex"]} justifyContent={"space-between"}>
+            <Heading style={{width: "50px", height: "100%"}}>
+                <Link to="/">DashBoard</Link>
+            </Heading>
             <nav>
                 <ul>
-                    <li><a href="/">아우터</a></li>
-                    <li><a href="/">팬츠</a></li>
-                    <li><a href="/">악세서리</a></li>
-                    <li><a href="/">신발</a></li>
+                    <li><Link to="/">Main Dashboard</Link></li>
+                    <li><Link to="/marketplace">NFT Market</Link></li>
+                    <li><Link to="/datatables">Data Tables</Link></li>
+                    <li><Link to="/profile">Profile</Link></li>
+                    <li><Link to="/signin">Signin</Link></li>
                 </ul>
             </nav>
-        </header>
+            </Container>
+        </Box>
     )
 }
 
