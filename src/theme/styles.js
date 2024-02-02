@@ -1,6 +1,9 @@
 import { mode } from "@chakra-ui/theme-tools";
 // import { lighten } from "polished";
 export const globalStyles = {
+  // const variables = {
+  //   $maxW 
+  // }
   colors: {
   //   yellow: {
   //     base: '#FFB547',
@@ -87,7 +90,8 @@ export const globalStyles = {
   styles: {
     global: (props) => ({
       body: {
-        overflowX: "hidden",
+        overflowX: "scroll",
+        minWidth: "320px",
         bg: mode("white", "navy.900")(props),
         fontFamily: '"Noto Sans KR", "sans-serif"',
         letterSpacing: "-0.5px",
@@ -100,6 +104,12 @@ export const globalStyles = {
       },
       html: {
         fontFamily: '"Noto Sans KR", "sans-serif"',
+      },
+      "ul > li": {
+        listStyle: "none",
+      },
+      ".chakra-container": {
+        maxWidth: "calc( 1280px + var(--chakra-space-4) * 2 )!important",
       },
     }),
   },

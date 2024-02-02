@@ -9,8 +9,9 @@ const ContainerLg = (props) => {
 }
 
 export const Section = (props) => {
+    const backgroundColor = props.isLightBackground ? "white" : "gray.100"
     return(
-        <Box py={4}>
+        <Box py={"100px"} bg={backgroundColor}>
             {props.children}
         </Box>
     )

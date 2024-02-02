@@ -15,6 +15,13 @@ export const buttonStyles = {
         },
       },
       variants: {
+        tnb: () => ({
+          color:"white",
+          fontSize: "12px",
+          "padding-inline-start": "0",
+          "padding-inline-end": "0",
+          height: "32px",
+        }),
         cancel: () => ({
           borderRadius: "5px",
           bg: ["red.500", "red.500", "red.700","pink.300","lightblue.200", "white"],
