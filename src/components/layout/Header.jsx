@@ -3,36 +3,82 @@ import { Link } from "react-router-dom";
 import Gnb from "./Gnb";
 import { SearchIcon, SunIcon } from "@chakra-ui/icons";
 import { PiHamburger } from "react-icons/pi";
+import gsap from "gsap";
 
 const Header = () => {
+
+    const HandleScroll = () => {
+        const scrollY = window.scrollY
+        const hd = document.querySelector('#header')
+        const navBelt = document.querySelector('.nav-belt__wrapper')
+        const navBar = document.querySelector('.nav-bar__wrapper')
+        const hdHeight = hd.offsetHeight // 헤더 높이
+        // const swiperHeight = document.querySelector('.main-slide').offsetHeight // 슬라이드 높이
+        const swiperHeight = document.querySelector('.main-slide')?.offsetHeight || 0; // 슬라이드 높이
+        console.log(scrollY)
+        console.log(swiperHeight - hdHeight)
+
+        // if : 100px 이상 스크롤 되면 헤더에 배경색을 입힌다.
+        if(scrollY > swiperHeight - hdHeight) {
+            // gsap.to(요소, {옵션})
+            gsap.to(navBar, {
+                backgroundColor: '#fff', duration: 0.5,
+            });
+            gsap.to(navBelt, {
+                backgroundColor: '#f6f7f8', duration: 0.5,
+            });
+            gsap.to(navBelt.querySelectorAll('button'), { color: '#000', duration: 0.5 });
+        } else {
+            // else : 100px 이하로 스크롤 되면 배경색을 없앤다.
+            gsap.to(navBar, {
+                backgroundColor: '', duration: 0.5,
+            });
+            gsap.to(navBelt, {
+                backgroundColor: '', duration: 0.5,
+            });
+        }
+    }   
+
+    window.addEventListener('scroll', HandleScroll)
+
     return (
-        <Box as="header" position={"fixed"} top={0} left={0} right={0} zIndex={1000} bg="rgba(0,0,0,.1)" backdropFilter={'saturate(180%) blur(15px)'}>
-            <Box display={["none", null, null, null,"block"]}h={"32px"} bg={"rgba(0,0,0,0.6)"}>
+        <Box 
+        id="header"
+        as="header" 
+        position={"fixed"} 
+        top={0} 
+        left={0} 
+        right={0} 
+        zIndex={1000} 
+        bg="rgba(0,0,0,.1)" 
+        backdropFilter={'saturate(180%) blur(5px)'}
+        >
+            <Box className="nav-belt__wrapper" display={["none", null, null, null,"block"]}h={"32px"} bg={"rgba(0,0,0,0.6)"}>
                 <Container display="flex" justifyContent={"space-between"} alignContent={"center"} alignItems={"center"}>
                         <ButtonGroup gap={"10px"}>
-                            <Button variant="tnb">공공기관용</Button>
-                            <Button variant="tnb">금융 클라우드</Button>
+                            <Button colorScheme="teal" variant="tnb">공공기관용</Button>
+                            <Button colorScheme="teal" variant="tnb">금융 클라우드</Button>
                         </ButtonGroup>
                         <ButtonGroup gap={"10px"}>
-                            <Button variant="tnb">로그인</Button>
-                            <Button variant="tnb" color={"#4ca4f5"}>회원 가입</Button>
-                            <Button variant="tnb">Languages</Button>
+                            <Button colorScheme="teal" variant="tnb">로그인</Button>
+                            <Button colorScheme="teal" variant="tnb" color={"#4ca4f5"}>회원 가입</Button>
+                            <Button colorScheme="teal" variant="tnb">Languages</Button>
                         </ButtonGroup>
                 </Container>
             </Box>
-            <Box bg={"rgba(0,0,0,.05"} >
+            <Box className="nav-bar__wrapper" bg={"rgba(0,0,0,.05"} >
                 <Container display={"flex"} alignItems={"center"} justifyContent={"space-between"} h={"60px"} >
-                <Heading as={"h1"} fontSize={24}>
-                    <Link to="/">Dash Board</Link>
-                </Heading>
+                    <Heading as={"h1"} fontSize={24}>
+                        <Link to="/">Dash Board</Link>
+                    </Heading>
                     <Gnb/>
                     <ButtonGroup>
                         <IconButton variant='ghost' aria-label="Search database" icon={<SearchIcon />} />
                         <IconButton variant='ghost' aria-label="Light database" icon={<SunIcon />} />
-                    </ButtonGroup>
-                    <Button display={{ sm: "flex", lg: "none"}} >
+                    <Button variant='ghost' display={{ sm: "flex", lg: "none"}} >
                         <PiHamburger />
                     </Button>
+                    </ButtonGroup>
 
                 </Container>
             </Box>

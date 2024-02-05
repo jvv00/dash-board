@@ -8,7 +8,7 @@ import { Container } from "@chakra-ui/react";
 
 const Home = () => {
     return (
-        <Layout title="home" showTitile={false}>
+        <Layout title="home" showTitle={false}>
         <MainSlide/>
         <Section isLightBackground={true}>
           <Container>
