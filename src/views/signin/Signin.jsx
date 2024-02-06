@@ -1,12 +1,12 @@
-import Layout from "../../components/layout/Layout"
+import { NoneLayout } from "../../components/layout/Layout"
 
 const Signin = () => {
     return (
-        <Layout title="signin">
+        <>
             <div>
                 signin
             </div>
-        </Layout>
+        </>
     )
 }
 

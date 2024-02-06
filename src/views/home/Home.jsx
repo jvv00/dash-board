@@ -8,7 +8,7 @@ import { Container } from "@chakra-ui/react";
 
 const Home = () => {
     return (
-        <Layout title="home" showTitle={false}>
+        <>
         <MainSlide/>
         <Section isLightBackground={true}>
           <Container>
@@ -25,7 +25,7 @@ const Home = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam asperiores amet minima quo ratione sequi magnam soluta vitae id eum, modi, necessitatibus molestiae voluptatem voluptates, numquam unde quia veritatis. Id!
             </Container>
         </Section>
-        </Layout>
+        </>
     )
 }
 

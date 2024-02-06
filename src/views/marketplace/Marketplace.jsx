@@ -1,7 +1,7 @@
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
+import { Box, Image, Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
 import Layout from "../../components/layout/Layout";
 // import { motion } from "framer-motion";
-// import topImg from 
+import topImg from '../../assets/images/_8dhZ2QXoOxi4QAviL_x3x5lusaeVJGtVDvOJ8iyVrBQXOA-nEcst9MlALAimjErAAucAtO1Wb7CPknkBGNmITqi_wIqA0mbKeVM_4E.avif'
 
 const Marketplace = () => {
 
@@ -13,7 +13,7 @@ const Marketplace = () => {
 // }
 
     return (
-        <Layout title="marketplace" showTitle={false}>
+        <>
             <div>
             {/* <h2>Marketplace</h2> */}
             </div>
@@ -23,29 +23,26 @@ const Marketplace = () => {
             animate={{opacity: 1, x: 100}}
             transition={{ duration: 2, ease: "easeInOut",}}
             /> */}
-            <Tabs variant='soft-rounded' colorScheme='green'>
+             <Box className="topCont" h={'500px'} bg={`url(${topImg}) no-repeat 50% 50% / cover `}></Box>
+             <Image src={topImg} alt=""/>
+             <Image src="/logo192.png"/>
+            <Tabs position={'sticky'} top={0}>
                 <TabList>
-                    <Tab>모두</Tab>
-                    <Tab>아트</Tab>
-                    <Tab>게이밍</Tab>
-                    <Tab>멤버십</Tab>
+                    <Tab>One</Tab>
+                    <Tab>Two</Tab>
+                    <Tab>Three</Tab>
                 </TabList>
+
                 <TabPanels>
                     <TabPanel>
-                    
+                        <p>
+                        </p>
                     </TabPanel>
-                    <TabPanel>
-                    
-                    </TabPanel>
-                    <TabPanel>
-                    
-                    </TabPanel>
-                    <TabPanel>
-                    
-                    </TabPanel>
+                   
                 </TabPanels>
                 </Tabs>
-        </Layout>
+                <div style={{ height: '100vh' }}></div>
+        </>
         
     )
 }
